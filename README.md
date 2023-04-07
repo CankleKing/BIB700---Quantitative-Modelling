@@ -11,5 +11,5 @@ PART B - Visualization & Analysis:
 Using the dataframe created by PART A, a series of graphs and statistical tests are performed to help visualise and analyse the results of our model.
 
 PART C - Preliminary Dispersal Code:
-(BONUS CONTENT) This is non-functional code but can be a good starting point to  develop the model further 
+(BONUS CONTENT) This is non-functional code that can be used as a good starting point to  develop the model further.
 
