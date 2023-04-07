@@ -71,7 +71,7 @@ for (i in 1:n.patch) {
     Aq = 0.4, # Attack rate of hyperparasitoid 
     cp = 1, # Conversion efficiency of parasitoid 
     cq = 0.23, # Conversion efficiency of hyperparasitoid 
-    noise = rnorm(1, mean = 1, sd = 0.1), # Stochastic noise term 
+    noise = rnorm(1, mean = 1, sd = 0.2), # Stochastic noise term 
     size = DatPatch$size[[i]]) # Patch size 
 }
 
