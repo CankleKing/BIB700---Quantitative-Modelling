@@ -78,15 +78,15 @@ big_results$size_range <- cut(big_results$patch_size, breaks = size_ranges,
 summary_table <- big_results %>% 
   group_by(size_range) %>% 
   summarize(mean_N = round(mean(N), 2),
-            sd_N = sd(N),
+            sd_N = round(sd(N), 2),
             min_N = min(N),
             max_N = max(N),
             mean_P = round(mean(P), 2),
-            sd_P = sd(P),
+            sd_P = round(sd(P), 2),
             min_P = min(P),
             max_P = max(P),
             mean_Q = round(mean(Q), 2),
-            sd_Q = sd(Q),
+            sd_Q = round(sd(Q), 2),
             min_Q = min(Q),
             max_Q = max(Q))
 # Print the summary table - TABLE 2 
