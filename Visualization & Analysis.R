@@ -82,7 +82,7 @@ ggplot(host_size_means_Q, aes(x = timestep, y = Q, fill = size_range)) +
 big_results$size_range <- cut(big_results$patch_size, breaks = size_ranges, 
                               right = FALSE)
 
-### Group the dataset by size_range and compute summary statistics
+### Group the dataset by size range and compute summary statistics
 summary_table <- big_results %>% 
   group_by(size_range) %>% 
   summarize(mean_N = round(mean(N), 2),
@@ -128,7 +128,7 @@ K_N_results <- kruskal.test(N ~ size_range, data = avg_population)
 K_P_results <- kruskal.test(P ~ size_range, data = avg_population)
 K_Q_results <- kruskal.test(Q ~ size_range, data = avg_population)
 
-## Perform Tukey HSD post-hoc test
+## Perform Dunn post-hoc test
 dunn_resultsN <- dunn.test(avg_population$N, avg_population$size_range, 
                             method = "bonferroni")
 dunn_resultsP <- dunn.test(avg_population$P, avg_population$size_range,
@@ -163,20 +163,23 @@ summary(model_Q) # View the model summary
 ### Checking the assumptions
 ## Linearity
 ## Visual check of linearity for each pop from scatter & residual vs fitted plot
+# Hosts
 ggplot(avg_population, aes(x = patch_size, y = N)) +
   geom_point() + # Add the points
   geom_smooth(method = "lm") + # Add the linear regression line
   labs(x = "Patch size", y = "Average N") # Add axis labels
 plot(model_N,1)
+# Parasitoids
 ggplot(avg_population, aes(x = patch_size, y = P)) +
-  geom_point() + # Add the points
-  geom_smooth(method = "lm") + # Add the linear regression line
-  labs(x = "Patch size", y = "Average P") # Add axis labels
+  geom_point() + 
+  geom_smooth(method = "lm") + 
+  labs(x = "Patch size", y = "Average P") 
 plot(model_P,1)
+# Hyperparasitoids
 ggplot(avg_population, aes(x = patch_size, y = P)) +
-  geom_point() + # Add the points
-  geom_smooth(method = "lm") + # Add the linear regression line
-  labs(x = "Patch size", y = "Average Q") # Add axis labels
+  geom_point() + 
+  geom_smooth(method = "lm") + 
+  labs(x = "Patch size", y = "Average Q") 
 plot(model_Q,1)
 
 ## Homogeneity of variance 
