@@ -157,7 +157,7 @@ for (seed in seeds) {
     ### Print the results to check data for errors 
     print(results)
     
-    ### Add the results table for each seed and runs to to big results table
+    ### Add the results table for each seed and runs to a big results table
     big_results <- bind_rows(big_results, results)
     
   }
